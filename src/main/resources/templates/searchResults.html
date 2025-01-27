@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link th:href="@{/styles/searchResult-styles.css}" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{/js/searchResult.js}" defer></script>
+</head>
+<body>
+<div class="d2">
+    <h1>Результаты поиска для: <span th:text="${query}"></span></h1>
+
+    <div th:if="${results.size() == 0}">
+        <p>К сожалению, ничего не найдено.</p>
+    </div>
+
+    <ul>
+        <li th:each="item : ${results}" class="result-item" th:data-id="${item.id}" style="cursor: pointer;">
+            <p th:text="${item.name}"></p>
+        </li>
+    </ul>
+
+    <a th:href="@{/searcher}" class="back-link">Назад</a>
+</div>
+
+<div id="infoModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Подробная информация</h2>
+        <div id="modalContent"></div>
+    </div>
+</div>
+</body>
+</html>

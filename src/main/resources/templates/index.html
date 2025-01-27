@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Thymeleaf Page</title>
+    <script>
+        function sendCheckRequest() {
+            const initData = window.location.hash;
+            const base64InitData = btoa(initData);
+
+            const url = "/check";
+            fetch(url, {
+                method: "GET",
+                headers: {
+                    "X-Telegram-Init-Data": initData
+                }
+            })
+                .then(response => response.text())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</head>
+<body>
+<h1>Welcome to My Thymeleaf Page</h1>
+<p>This page is served using Thymeleaf template engine.</p>
+<button onclick="sendCheckRequest()">Check</button>
+</body>
+</html>

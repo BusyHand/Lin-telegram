@@ -1,0 +1,204 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%; /* Ensure body takes the full height */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    flex-direction: column; /* Arrange children in a column */
+    font-family: Arial, sans-serif;
+    background-color: #f9f0da;
+    height: 100vh; /* Задать высоту для body */
+    display: flex;
+    justify-content: center; /* Центрировать по горизонтали */
+    align-items: center; /* Центрировать по вертикали */
+    margin: 0; /* Убираем отступы */
+}
+
+.d2 {
+    display: flex;
+    flex-direction: column; /* Вертикальная ориентация для контейнера */
+    align-items: center; /* Центрирование элементов по горизонтали */
+    width: 300px; /* Ширина контейнера */
+    position: relative; /* Для абсолютного позиционирования элементов */
+}
+
+.radio-container {
+    display: flex; /* Используйте flexbox для плиток */
+    justify-content: space-between; /* Распределение плиток по ширине */
+    width: 100%; /* Полная ширина */
+    margin-bottom: 10px; /* Отступ снизу для разделения с формой */
+}
+
+.search-container {
+    display: flex; /* Размещаем поле ввода и кнопку в одной строке */
+    width: 100%; /* Полная ширина контейнера */
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #f1f1f1;
+    width: 100%; /* Полная ширина ввода */
+    outline: none;
+}
+
+input[type="submit"] {
+    background-color: DodgerBlue;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 15px; /* Добавьте немного горизонтального отступа для кнопки */
+    margin-left: 5px; /* Отступ между полем ввода и кнопкой */
+    white-space: nowrap; /* Избегать обтекания текста */
+}
+
+#suggestionsD2 {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-top: none;
+    z-index: 99;
+    width: 100%; /* Занимает ту же ширину, что и поле ввода */
+    top: calc(100% + 5px); /* Расположите под полем ввода */
+    background-color: white;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.suggestion-item:hover {
+    background-color: #e9e9e9;
+}
+
+.tile {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    margin: 0 5px;
+    background-color: #f1f1f1; /* Default background */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+input[type="radio"] {
+    display: none; /* Hide radio buttons */
+}
+
+/* Active tile styling */
+input[type="radio"]:checked + .tile {
+    background-color: DodgerBlue; /* Color when active */
+    color: #fff; /* Text color when active */
+}
+
+.tile.active {
+    background-color: DodgerBlue; /* Active color when selected */
+    color: #fff; /* Active text color */
+}
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.6); /* Black background with opacity */
+}
+
+.modal-content {
+    background-color: #fefefe; /* White background for the modal */
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px; /* Limit the maximum width */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.close-button {
+    color: #aaa; /* Light gray color */
+    float: right; /* Float to the right */
+    font-size: 28px; /* Size of the close button */
+    font-weight: bold; /* Bold text */
+}
+
+input[type="submit"],
+.create-button {
+    background-color: DodgerBlue; /* Blue background */
+    color: #fff; /* White text */
+    cursor: pointer; /* Pointer cursor on hover */
+    border: none; /* No border */
+    border-radius: 3px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for button */
+    margin-left: 5px; /* Space between input and button if necessary */
+    white-space: nowrap; /* Prevent button text from wrapping */
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+/* Hover effect */
+input[type="submit"]:hover,
+.create-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+footer {
+    background-color: #f9f0da; /* Match the background color of the body */
+    text-align: center; /* Center footer content */
+    padding: 10px 0; /* Add some padding */
+}
+
+/* Ensuring uniform width for inputs */
+form div {
+    width: 100%; /* Make the labels and inputs full width of the modal content */
+    margin-bottom: 15px; /* Spacing between fields */
+}
+
+input[type="text"],
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc; /* Consistent border style */
+    border-radius: 3px;
+    background-color: #f1f1f1;
+    width: 100%; /* Full width for consistency */
+    outline: none; /* Remove default outline */
+}
+
+/* Style for the modal Create button */
+.modal-footer {
+    display: flex; /* Use flex for centering */
+    justify-content: center; /* Center the button */
+}
+
+.modal-create-button {
+    background-color: DodgerBlue; /* Blue background */
+    color: #fff; /* White text */
+    cursor: pointer; /* Pointer cursor on hover */
+    border: none; /* No border */
+    border-radius: 3px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for button */
+    text-align: center; /* Center text within the button */
+    width: auto; /* Adjust width as needed */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Hover effect for the button */
+.modal-create-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Optional styling for text area */
+textarea {
+    height: 100px; /* Adjustable height as needed */
+}

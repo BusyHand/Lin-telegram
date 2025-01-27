@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+}
+ul {
+    list-style-type: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f0da;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.d2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px; /* Increased width for the container */
+    padding: 20px; /* Added padding */
+    background-color: #fff; /* Background for the container */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+h1 {
+    font-size: 24px;
+    color: #333; /* Header color */
+    margin: 0 0 20px; /* Bottom margin */
+}
+
+.result-item {
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd; /* Border around result elements */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f9f9f9; /* Background color for item */
+    transition: background-color 0.3s; /* Smooth transition for background */
+    width: 100%; /* Make items full width */
+}
+
+.result-item ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.result-item:hover {
+    background-color: #008CBA; /* Blue background on hover */
+    color: #fff; /* Change text color to white on hover */
+}
+
+.back-link {
+    margin-top: 20px; /* Top margin */
+    text-decoration: none; /* No underline */
+    color: #fff; /* White text color */
+    background-color: DodgerBlue; /* Background color */
+    padding: 10px 15px; /* Padding */
+    border-radius: 3px; /* Rounded corners */
+    font-weight: bold; /* Bold text */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Hover effect for back link */
+.back-link:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

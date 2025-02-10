@@ -1,6 +1,7 @@
 package ru.ugrasu.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -9,9 +10,9 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**") // Allow all endpoints
-                .allowedOrigins("http://localhost:63342", "https://9twvtc0cahjz.share.zrok.io") // Add your frontend URLs
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS") // Allow specific methods
-                .allowedHeaders("*"); // Allow all headers
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:63342", "https://9twvtc0cahjz.share.zrok.io")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH")
+                .allowedHeaders("*");
     }
 }

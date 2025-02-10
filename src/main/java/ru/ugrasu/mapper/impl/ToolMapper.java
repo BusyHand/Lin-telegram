@@ -1,14 +1,12 @@
-package ru.ugrasu.mapper;
+package ru.ugrasu.mapper.impl;
 
 import org.mapstruct.*;
 import ru.ugrasu.dto.ToolDto;
 import ru.ugrasu.entity.Tool;
+import ru.ugrasu.mapper.Mappable;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 public interface ToolMapper extends Mappable<Tool, ToolDto> {
-    Tool toEntity(ToolDto toolDto);
-
-    ToolDto toDto(Tool tool);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     Tool partialUpdate(ToolDto toolDto, @MappingTarget Tool tool);

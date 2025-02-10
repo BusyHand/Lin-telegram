@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.ugrasu.dto.BignessCaseDto;
 import ru.ugrasu.entity.BignessCase;
-import ru.ugrasu.mapper.BignessCaseMapper;
+import ru.ugrasu.mapper.impl.BignessCaseMapper;
 import ru.ugrasu.service.BignessCaseService;
 
 import java.io.IOException;
@@ -29,7 +29,7 @@ public class BignessCaseRestController {
     @ResponseStatus(HttpStatus.OK)
     public List<String> getSuggestions(@RequestParam String query) {
         List<BignessCase> bignessCases = bignessCaseService.findSuggestionsForBignessCases(query);
-        return bignessCases.stream().map(BignessCase::getName).toList(); // Assuming BignessCase has a getTitle method
+        return bignessCases.stream().map(BignessCase::getName).toList();
     }
 
     @GetMapping

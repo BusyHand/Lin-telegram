@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.ugrasu.dto.TermDto;
 import ru.ugrasu.entity.Term;
-import ru.ugrasu.mapper.TermMapper;
+import ru.ugrasu.mapper.impl.TermMapper;
 import ru.ugrasu.service.TermService;
 
 import java.io.IOException;

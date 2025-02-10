@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.ugrasu.dto.ToolDto;
 import ru.ugrasu.entity.Tool;
-import ru.ugrasu.mapper.ToolMapper;
+import ru.ugrasu.mapper.impl.ToolMapper;
 import ru.ugrasu.service.ToolService;
 
 import java.io.IOException;
@@ -71,7 +71,6 @@ public class ToolRestController {
         ToolDto toolDto = toolMapper.toDto(tool);
         objectMapper.readerForUpdating(toolDto).readValue(patchNode);
         toolMapper.updateWithNull(toolDto, tool);
-
         Tool updatedTool = toolService.create(tool);
         return toolMapper.toDto(updatedTool);
     }
